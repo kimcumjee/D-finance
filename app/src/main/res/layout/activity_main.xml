@@ -17,13 +17,22 @@
             android:id="@+id/oil_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="179dp"
-            android:layout_marginTop="113dp"
-            android:layout_marginEnd="173dp"
-            android:text="유가"
+            android:layout_marginTop="92dp"
+            android:text=""
+            android:textSize="35dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="97dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="52dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textSize="35dp"/>
+            app:srcCompat="@drawable/ic_oil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
