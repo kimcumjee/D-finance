@@ -11,6 +11,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.stock.ant.base.BaseViewModel
 import com.stock.d_finance.widget.SingleLiveEvent
 
+
 class LoginViewModel : BaseViewModel() {
 
     val btn = SingleLiveEvent<Unit>()

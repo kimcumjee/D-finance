@@ -9,6 +9,7 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.project.simplecode.spaIntent
 import com.stock.ant.base.BaseActivity
 import com.stock.d_finance.R
 import com.stock.d_finance.databinding.ActivityLoginBinding
@@ -27,6 +28,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(){
     private val RC_SIGN_IN = 99
     override fun init() {
         val loginBtn = findViewById<SignInButton>(R.id.google_login_btn)
+        loginBtn.setOnClickListener {
+            spaIntent(MainActivity::class.java)
+        }
 //        loginBtn.setOnClickListener { signIn() }
 //
 //        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

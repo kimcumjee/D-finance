@@ -59,6 +59,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit-mock:2.6.2'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-
+    //simple code library
+    implementation 'com.github.nks0614:DGSW_Project:1.6.2'
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
 
 }
