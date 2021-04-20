@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dfinance">
         <activity
-            android:name=".BottomActivity"
+            android:name=".view.BottomActivity"
             android:label="@string/title_activity_bottom"></activity>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.LoginActivity">

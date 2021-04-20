@@ -1,13 +1,13 @@
-package com.stock.d_finance.ui.dashboard
+package com.stock.d_finance.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class EconomyViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "메인"
     }
     val text: LiveData<String> = _text
 }

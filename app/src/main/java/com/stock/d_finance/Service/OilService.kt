@@ -1,7 +1,7 @@
 package com.stock.d_finance.Service
 
-import com.stock.d_finance.model.Data
-import com.stock.d_finance.model.OilResponse
+import com.stock.d_finance.model.OilResponse.Data
+import com.stock.d_finance.model.OilResponse.OilResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
