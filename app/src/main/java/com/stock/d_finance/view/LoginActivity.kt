@@ -3,12 +3,14 @@ package com.stock.d_finance.view
 import android.content.Intent
 import android.util.Log
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.project.simplecode.spaIntent
 import com.stock.ant.base.BaseActivity
 import com.stock.d_finance.R
@@ -48,7 +50,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         }
     }
 
-    //    //현재 로그인 되어 있는지 확인
+    //현재 로그인 되어 있는지 확인
     public override fun onStart() {
         super.onStart()
         val account = GoogleSignIn.getLastSignedInAccount(this)
@@ -56,7 +58,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             toMainActivity(firebaseAuth.currentUser)
         }
     }
-//
+
     // LoginActivity 로 이동
     private fun toMainActivity(user: FirebaseUser?) {
         if (user != null) {
@@ -74,20 +76,35 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).requestEmail()
-                .build()
             try {
+
                 val account = task.getResult(ApiException::class.java)
-                viewModel.firebaseAuthWithGoogle(account!!, firebaseAuth)
+                firebaseAuthWithGoogle(account!!)
 
             } catch (e: ApiException) {
 
                 Log.w("LoginActivity", "Google sign in failed", e)
             }
         }
+    }
+    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
+        Log.d("LoginActivity", "firebaseAuthWithGoogle:" + acct.id!!)
+
+        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.w("LoginActivity", "firebaseAuthWithGoogle 성공", task.exception)
+                    val user = firebaseAuth.currentUser
+                    Log.d("account", "account : ${user!!.email}")
+
+                } else {
+                    Log.w("LoginActivity", "firebaseAuthWithGoogle 실패", task.exception)
+                    Log.e("로그인", "로그인에 실패했습니다.")
+                }
+            }
     }
 
 }

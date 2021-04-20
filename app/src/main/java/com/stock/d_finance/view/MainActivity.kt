@@ -1,6 +1,5 @@
 package com.stock.d_finance.view
 
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.stock.ant.base.BaseActivity
 import com.stock.d_finance.R
@@ -13,13 +12,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override val layoutRes: Int
         get() = R.layout.activity_main
     override fun init() {
-        val oilPrice = findViewById<TextView>(R.id.oil_price)
         viewModel.oil()
-
     }
 
     override fun observerViewModel() {
-        viewModel.total.observe(this, Observer {
+        viewModel.totalData.observe(this, Observer {
             binding.oilPrice.text = it.toString()
         })
     }
