@@ -3,8 +3,8 @@ package com.stock.d_finance.viewModel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.stock.ant.base.BaseViewModel
 import com.stock.d_finance.Service.OilService
+import com.stock.d_finance.base.BaseViewModel
 import com.stock.d_finance.retrofitClient.OilRetrofitClient
 import kotlinx.coroutines.*
 import retrofit2.Retrofit

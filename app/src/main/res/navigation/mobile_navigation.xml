@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/economyFragment">
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/economyFragment"
         android:name="com.stock.d_finance.view.EconomyFragment"
         android:label="fragment_economy"
         tools:layout="@layout/fragment_economy" >
         <action
-            android:id="@+id/action_homeFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            android:id="@+id/action_economyFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/newsFragment"
         android:name="com.stock.d_finance.view.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_dashboardFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_newsFragment_to_economyFragment"
+            app:destination="@id/economyFragment" />
     </fragment>
 </navigation>

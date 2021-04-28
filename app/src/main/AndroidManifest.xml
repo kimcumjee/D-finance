@@ -11,10 +11,7 @@
         android:roundIcon="@mipmap/graph_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dfinance">
-        <activity
-            android:name=".view.BottomActivity"
-            android:label="@string/title_activity_bottom"></activity>
-        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.BottomActivity"/>
         <activity android:name=".view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

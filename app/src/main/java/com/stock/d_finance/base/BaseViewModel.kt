@@ -1,4 +1,4 @@
-package com.stock.ant.base
+package com.stock.d_finance.base
 
 import androidx.lifecycle.ViewModel
 

@@ -5,9 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.stock.d_finance.Service.NewService
-import com.stock.d_finance.Service.OilService
 import com.stock.d_finance.retrofitClient.NewsRetrofitClient
-import com.stock.d_finance.retrofitClient.OilRetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,13 +19,13 @@ class NewsViewModel : ViewModel() {
     private var total = MutableLiveData<String>()
     val totalData : LiveData<String>
         get() = total
-    val API_KEY = "8c0be841f23945798630caa8ca0a8841"
+    private val API_KEY = "8c0be841f23945798630caa8ca0a8841"
     fun news(){
 
         retrofit = NewsRetrofitClient.getRetrofitClient()
         newsService = NewsRetrofitClient.getNewsService(retrofit)
         CoroutineScope(Dispatchers.IO).launch {
-            val response = newsService.getNewsData("kr","business","$API_KEY")
+            val response = newsService.getNewsData("kr","business",API_KEY)
             if(response.isSuccessful){
                 response.body()?.let {
                     withContext(Dispatchers.Main){

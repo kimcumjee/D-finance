@@ -8,7 +8,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.stock.ant.base.BaseViewModel
+import com.stock.d_finance.base.BaseViewModel
 import com.stock.d_finance.widget.SingleLiveEvent
 
 

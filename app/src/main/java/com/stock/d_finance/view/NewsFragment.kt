@@ -9,24 +9,26 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stock.d_finance.R
+import com.stock.d_finance.viewModel.BottomViewModel
 import com.stock.d_finance.viewModel.NewsViewModel
 
 class NewsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: NewsViewModel
+    private lateinit var newsViewModel: BottomViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this).get(NewsViewModel::class.java)
+        newsViewModel =
+            ViewModelProvider(this).get(BottomViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        newsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
         return root
     }
 }
